@@ -3,6 +3,7 @@ opencv-python-headless
 imageio
 imageio-ffmpeg
 pydub
+audioop-lts; python_version >= "3.13"
 scenedetect
 yt-dlp
 ffmpeg-python
