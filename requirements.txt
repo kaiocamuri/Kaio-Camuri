@@ -1,0 +1,11 @@
+moviepy
+opencv-python-headless
+imageio
+imageio-ffmpeg
+pydub
+scenedetect
+yt-dlp
+ffmpeg-python
+openai-whisper
+numpy
+pillow

@@ -1,0 +1,59 @@
+# Kaio Camuri — Edição de Vídeo
+
+Ambiente para editar vídeos por linha de comando e Python.
+
+## Instalação
+
+```bash
+sudo bash scripts/setup-video.sh
+```
+
+## O que é instalado
+
+| Ferramenta | Para que serve |
+|---|---|
+| **ffmpeg / ffprobe** | Cortar, juntar, converter, comprimir, legendas, áudio |
+| **mediainfo** | Ver detalhes técnicos de um arquivo (codec, bitrate, fps) |
+| **sox** | Processar áudio (normalizar, remover ruído) |
+| **mkvtoolnix** | Manipular arquivos MKV (faixas, legendas) |
+| **ImageMagick** | Thumbnails, imagens, sobreposições |
+| **MoviePy** | Edição em Python (cortes, textos, transições, composições) |
+| **OpenCV** | Processamento de imagem/frames, detecção de rostos, efeitos |
+| **PySceneDetect** | Detectar cortes de cena automaticamente |
+| **pydub** | Edição de áudio em Python |
+| **Whisper** | Transcrição automática e geração de legendas (.srt) |
+| **yt-dlp** | Baixar vídeos de referência |
+
+## Exemplos rápidos
+
+```bash
+# Cortar do segundo 10 ao 30 sem reencodar
+ffmpeg -ss 10 -to 30 -i entrada.mp4 -c copy corte.mp4
+
+# Converter para vertical 9:16 (Reels/TikTok/Shorts)
+ffmpeg -i entrada.mp4 -vf "crop=ih*9/16:ih,scale=1080:1920" -c:a copy vertical.mp4
+
+# Comprimir para web
+ffmpeg -i entrada.mp4 -c:v libx264 -crf 23 -preset medium -c:a aac -b:a 128k web.mp4
+
+# Extrair o áudio
+ffmpeg -i entrada.mp4 -vn -c:a libmp3lame -q:a 2 audio.mp3
+
+# Gerar legendas automáticas em português
+whisper entrada.mp4 --language pt --model small --output_format srt
+
+# Queimar legendas no vídeo
+ffmpeg -i entrada.mp4 -vf subtitles=entrada.srt legendado.mp4
+
+# Detectar cenas e dividir o vídeo
+scenedetect -i entrada.mp4 detect-content split-video
+```
+
+```python
+from moviepy import VideoFileClip, TextClip, CompositeVideoClip
+
+clip = VideoFileClip("entrada.mp4").subclipped(0, 10)
+texto = (TextClip(text="Kaio Camuri", font_size=70, color="white")
+         .with_duration(10).with_position("center"))
+CompositeVideoClip([clip, texto]).write_videofile("saida.mp4")
+```
