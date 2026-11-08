@@ -6,7 +6,7 @@ set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -qq
 apt-get install -y -qq \
-  ffmpeg sox mediainfo mkvtoolnix imagemagick \
+  ffmpeg sox mediainfo mkvtoolnix imagemagick blender \
   fonts-dejavu fonts-liberation
 
 pip install -q -r "$(dirname "$0")/../requirements.txt"

@@ -10,3 +10,5 @@ ffmpeg-python
 openai-whisper
 numpy
 pillow
+rembg[cpu]
+mediapipe

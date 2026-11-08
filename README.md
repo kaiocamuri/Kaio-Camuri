@@ -57,3 +57,26 @@ texto = (TextClip(text="Kaio Camuri", font_size=70, color="white")
          .with_duration(10).with_position("center"))
 CompositeVideoClip([clip, texto]).write_videofile("saida.mp4")
 ```
+
+## IA e efeitos (rodam na CPU)
+
+| Ferramenta | Para que serve |
+|---|---|
+| **Blender** | 3D: modelos, simulação de fogo/fumaça, rastreamento de câmera, composição |
+| **rembg** | IA que recorta a pessoa/objeto do fundo |
+| **MediaPipe** | IA que rastreia rosto, mãos e corpo |
+
+### Texto pegando fogo no chão
+
+```bash
+# Demonstração com chão sintético
+python efeitos/fogo_no_chao.py --texto "KAIO" --saida fogo.mp4
+
+# No seu vídeo (câmera parada): cantos da área do chão em pixels,
+# na ordem sup-esq, sup-dir, inf-dir, inf-esq
+python efeitos/fogo_no_chao.py --entrada chao.mp4 --texto "KAIO" \
+    --cantos "420,560 860,560 1100,700 180,700" --saida fogo.mp4
+```
+
+Opções: `--inicio` (segundo em que acende), `--acender` (tempo para percorrer o texto),
+`--altura-chama`, `--duracao`, `--sem-som`. Um vídeo de 6 s em 720p leva cerca de 2 min.
