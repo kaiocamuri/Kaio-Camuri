@@ -80,3 +80,19 @@ python efeitos/fogo_no_chao.py --entrada chao.mp4 --texto "KAIO" \
 
 Opções: `--inicio` (segundo em que acende), `--acender` (tempo para percorrer o texto),
 `--altura-chama`, `--duracao`, `--sem-som`. Um vídeo de 6 s em 720p leva cerca de 2 min.
+
+## Enviar vídeos grandes (acima de 30 MB)
+
+O app do Claude limita anexos a 30 MB. Para vídeos maiores, use um link do Google Drive:
+
+1. Envie o vídeo para o Google Drive.
+2. Clique com o botão direito → **Compartilhar** → em "Acesso geral" escolha
+   **Qualquer pessoa com o link** → **Copiar link**.
+3. Cole o link no chat.
+
+```bash
+python scripts/baixar_drive.py "https://drive.google.com/file/d/XXXX/view" midia
+```
+
+Arquivos de até 10 MB também podem vir pelo conector do Drive; `scripts/drive_para_video.py`
+converte esse download no arquivo original.
