@@ -96,3 +96,17 @@ python scripts/baixar_drive.py "https://drive.google.com/file/d/XXXX/view" midia
 
 Arquivos de até 10 MB também podem vir pelo conector do Drive; `scripts/drive_para_video.py`
 converte esse download no arquivo original.
+
+## Tour de imóvel (padrão House Brokers)
+
+Une os vídeos, acelera 10x enquanto anda e freia bruscamente para 1x nas paradas,
+legenda os cômodos, aplica o logo branco a 20%, cartela final e trilha de blues.
+
+```bash
+python efeitos/tour_imovel.py analisar sala.mov cozinha.mov quintal.mov --saida tour.json
+# veja tour_paradas.jpg, edite "legendas" (e "cartela_mascote") no tour.json
+python efeitos/tour_imovel.py renderizar tour.json --saida tour.mp4   # --previa = rápido
+```
+
+A trilha é composta automaticamente por `efeitos/musica_blues.py` (ou use `"musica"` no json).
+Cores e fontes seguem o manual da marca: laranja #F68B1F, azul #001827, Montserrat.

@@ -1,0 +1,12 @@
+{
+  "_ajuda": "Legendas do Sobrado Santa Mônica II. Copie para o tour.json gerado pelo analisar.",
+  "titulo": "SOBRADO",
+  "subtitulo": "Santa Mônica II",
+  "legendas": [
+    {"parada": 0, "titulo": "Salas integradas", "sub": "Ambiente climatizado"},
+    {"parada": 1, "titulo": "Cozinha", "sub": "Integrada às salas"},
+    {"parada": 2, "titulo": "Lavanderia", "sub": ""},
+    {"parada": 3, "titulo": "2 Suítes", "sub": "Piso superior · climatizadas"},
+    {"parada": 4, "titulo": "Amplo quintal", "sub": ""}
+  ]
+}
